@@ -1,5 +1,12 @@
+// @ts-check
+
+/**
+ * Say hello to the given name.
+ * @param {string} name The name to say hello to.
+ * @returns {string} The hello message.
+ */
 function hello(name) {
-  return 'Hello ' + name;
+  return 'Hello ' + name.toUpperCase() + '!';
 }
 
 const names = ['Alice', 'Bob', 'Charlie'];
