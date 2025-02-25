@@ -62,6 +62,11 @@ Math.random = originalRandom;
 // 2 systèmes pour créer des objets
 
 // Object literal
+// Use case :
+// - les namespaces Objects (Math, JSON...) qui ne seront créé qu'une fois
+// - les objets simples (coordonnées, configuration...)
+//  (si créés plusieurs fois, sans méthodes et sans héritage)
+// - les objets temporaires (résultat d'une requête HTTP...) qui seront créé qu'une fois
 const coords = {
   x: 1,
   y: 2, // virgule finale recommandée (possible depuis ES5)
@@ -69,6 +74,18 @@ const coords = {
     return `x: ${this.x}, y: ${this.y}`;
   }
 };
+
+coords.z = 3;
+
+// Namespace Object (Math, JSON...)
+const MyMath = {
+  sum(a, b) {
+    return a + b;
+  }
+};
+
+console.log(MyMath.sum(1, 2)); // 3
+
 
 console.log(coords.toString()); // x: 1, y: 2
 

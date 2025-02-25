@@ -1,4 +1,4 @@
-function hello(name) {
+function hello(name, i) {
   console.log('Hello ' + name.toUpperCase() + '!');
 }
 
