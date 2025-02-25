@@ -26,14 +26,16 @@ const Random = {
 // require importe l'API readline de Node.js
 const readline = require("readline");
 class Jeu {
+  #rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  essais = [];
+
   constructor(options) {
     const min = options?.min ?? 0;
     const max = options?.max ?? 100; // équivalent à (options && options.max) ?? 100;
-    this.rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-    this.essais = [];
+
     this.entierAlea = Random.getRandomIntInclusive(min, max);
   }
   loop() {
@@ -43,7 +45,7 @@ class Jeu {
 
     // La question s'affiche tout suite (synchrone)
     // on attend la réponse de l'utilisateur en asynchrone
-    this.rl.question("Quel est le nombre ? ", (answer) => {
+    this.#rl.question("Quel est le nombre ? ", (answer) => {
       console.log(`Vous avez saisi : ${answer}`);
 
       const entierSaisi = Number.parseInt(answer, 10);
@@ -63,7 +65,7 @@ class Jeu {
         this.loop();
       } else {
         console.log("Gagné");
-        this.rl.close();
+        this.#rl.close();
       }
     });
   }

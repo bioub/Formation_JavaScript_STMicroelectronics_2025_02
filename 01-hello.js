@@ -6,7 +6,7 @@
  * @returns {string} The hello message.
  */
 function hello(name) {
-  return 'Hello ' + name.toUpperCase() + '!';
+  return `Hello ${name.toUpperCase()}!`;
 }
 
 const names = ['Alice', 'Bob', 'Charlie'];
