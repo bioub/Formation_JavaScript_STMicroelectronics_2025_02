@@ -1,4 +1,4 @@
-function getRandom() {
+/* exports.getRandom = */ function getRandom() {
   return Math.random();
 }
 
@@ -20,3 +20,14 @@ function getRandomIntInclusive(min, max) {
 
 // Exporter les 4 fonction en CommonJS
 // (exports ou module.exports)
+// module.exports = {
+//   getRandom,
+//   getRandomArbitrary,
+//   getRandomInt,
+//   getRandomIntInclusive,
+// }
+
+exports.getRandom = getRandom;
+exports.getRandomArbitrary = getRandomArbitrary;
+exports.getRandomInt = getRandomInt;
+exports.getRandomIntInclusive = getRandomIntInclusive;
